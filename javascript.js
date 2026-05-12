@@ -85,7 +85,40 @@ sr.reveal(`.about__image , .contact__form` , {delay:300})
 
 sr.reveal(`.project__card`,{interval:100})
 
-const telegramButton = document.getElementsByClassName("telegram")
-telegramButton.addEventListener("click",()=>{
-  alert("my telegram username : self_centured")
-})
+// const telegramButton = document.getElementsByClassName("telegram")
+// telegramButton.addEventListener("click",()=>{
+//   alert("my telegram username : self_centured")
+// })
+
+// Saving the spline objects in catche 
+
+const globDisplay = 'https://prod.spline.design/r8pP1p3JHCEFZa6V/scene.splinecode';
+const diamondDisplay = 'https://prod.spline.design/iCKWezLsLbiNuqet/scene.splinecode';
+
+function setItemTOCatche(key,value){
+  window.localStorage.setItem(key , value)
+}
+
+setItemTOCatche('3DObjects1' , globDisplay)
+setItemTOCatche('3DObjects2', diamondDisplay)
+
+// accessing the objects from catch and prescribing them to the iframe 
+const threeDimentionalObject1URL = window.localStorage.getItem("3DObjects1");
+const threeDimentionalObject2URL = window.localStorage.getItem("3DObjects2");
+
+const threeDimentionalObject1 = document.getElementById('threeDimentionalObject1')
+const threeDimentionalObject2 = document.getElementById('threeDimentionalObject2')
+
+try {
+  async function setUrlToElement(){
+    
+    threeDimentionalObject2.setAttribute('url' , threeDimentionalObject1URL)
+    threeDimentionalObject1.setAttribute('url' , threeDimentionalObject2URL)
+     
+  }
+  setUrlToElement()
+ }catch(err){
+  console.log("error")
+}finally{
+  console.log("the catching function is finished")
+}
