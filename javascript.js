@@ -26,7 +26,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 //typed js 
 const typedHome = new Typed(".home__typed",{
-  strings:['Web developer', 'English Assistant', 'Python programmer',],
+  strings:['Web developer', 'English Teacher', 'Python programmer',],
   typeSpeed: 75,
   backSpeed:75,
   loop:true,
